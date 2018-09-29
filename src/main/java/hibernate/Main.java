@@ -40,13 +40,13 @@ public class Main {
         }
 
 
-//        Person person1 = (Person) session.createQuery
+//        Person person1 = (Person) em.createQuery
 // ("FROM Person WHERE idperson = 99").getSingleResult();
 //        System.out.println(person1.getName());
 
 
 //
-//        String person2 = (String) session.createQuery("SELECT surname FROM Person WHERE idperson = 99").getSingleResult();
+//        String person2 = (String) em.createQuery("SELECT surname FROM Person WHERE idperson = 99").getSingleResult();
 //        System.out.println(person2);
 //        session.getTransaction().commit();
 
