@@ -16,12 +16,12 @@ public class Main {
 
         Person person = new Person();
         person.setAge(99);
-        person.setName("sid");
-        person.setSurname("sidsurname");
-        person.setIdperson(99);
+        person.setFirst_name("sid");
+        person.setLast_name("sidsurname");
+        person.setPerson_id(99);
         session.save(person);
 
-        //System.out.println("Employee ID=" + person.getIdperson());
+        //System.out.println("Employee ID=" + person.getPerson_id());
 
 //        List<Person> idperson = session.createQuery("from Person p where p.idperson = :idperson").setParameter("idperson", 99).getResultList();
 //
@@ -35,7 +35,7 @@ public class Main {
 
 
 //        Person person1 = (Person) session.createQuery("FROM Person WHERE idperson = 99").getSingleResult();
-//        System.out.println(person1.getName());
+//        System.out.println(person1.getFirst_name());
 
 
 //

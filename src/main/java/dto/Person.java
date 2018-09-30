@@ -5,27 +5,25 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-@Table(name="person")
+@Table(name="persons")
 public class Person {
     @Id
-    @Column(name="idperson", nullable=false, unique=true)
-    private int idperson;
+    @GeneratedValue
+    @Column(name="person_id", nullable=false, unique=true)
+    private int person_id;
 
-    @Column(name="name")
-    private String name;
+    private String first_name;
 
-    @Column
-    private String surname;
+    private String last_name;
 
-    @Column
     private int age;
 
     @Override
     public String toString() {
         return "Person{" +
-                "idperson=" + idperson +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                "person_id=" + person_id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
                 ", age=" + age +
                 ", dogs=" + dogs +
                 '}';
@@ -35,28 +33,28 @@ public class Person {
     @JoinColumn(name = "person_id")
     private Collection<Dog> dogs = new ArrayList<>();
 
-    public int getIdperson() {
-        return idperson;
+    public int getPerson_id() {
+        return person_id;
     }
 
-    public void setIdperson(int idperson) {
-        this.idperson = idperson;
+    public void setPerson_id(int idperson) {
+        this.person_id = idperson;
     }
 
-    public String getName() {
-        return name;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirst_name(String name) {
+        this.first_name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLast_name(String surname) {
+        this.last_name = surname;
     }
 
     public int getAge() {
