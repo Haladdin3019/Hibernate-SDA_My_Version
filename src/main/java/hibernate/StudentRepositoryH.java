@@ -79,7 +79,6 @@ public class StudentRepositoryH implements AbstractRepsitoryI<StudentH> {
         StudentH studentH = new StudentH();
         studentH.setFirst_name(first_nameH);
         studentH.setLast_name(last_nameH);
-        studentH.setStudent_id(10);
 
         em.persist(studentH);
 
@@ -95,7 +94,6 @@ public class StudentRepositoryH implements AbstractRepsitoryI<StudentH> {
         em.getTransaction().begin();
         String first_nameH = map.get("first_name");
         String last_nameH = map.get("last_name");
-
 
         Query query = em.createQuery("UPDATE StudentH SET first_name =:p" + " WHERE student_id =:p2")
                 .setParameter("p", first_nameH)

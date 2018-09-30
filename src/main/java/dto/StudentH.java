@@ -1,19 +1,30 @@
 package dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "students")
 public class StudentH {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int student_id;
     private String first_name;
     private String last_name;
+
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private Collection<Rating> ratings = new ArrayList<>();
+
+    public Collection<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Collection<Rating> ratings) {
+        this.ratings = ratings;
+    }
 
     public StudentH() {
     }
