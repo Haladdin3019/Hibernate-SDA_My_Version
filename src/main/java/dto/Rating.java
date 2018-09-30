@@ -17,6 +17,11 @@ public class Rating {
     public Rating() {
     }
 
+    public Rating(int student_id, float rating) {
+        this.student_id = student_id;
+        this.rating = rating;
+    }
+
     public int getRating_id() {
         return rating_id;
     }

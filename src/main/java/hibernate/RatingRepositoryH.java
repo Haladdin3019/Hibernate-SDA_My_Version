@@ -1,10 +1,8 @@
 package hibernate;
 
-import dto.StudentH;
+import dto.Rating;
 import jdbc.student.AbstractRepositoryII;
 import jdbc.student.AbstractRepsitoryI;
-import jdbc.student.Student;
-import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +11,7 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Map;
 
-public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
+public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
 
     EntityManager em = null;
 
@@ -25,56 +23,56 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
     }
 
     @Override
-    public StudentH get(int id) {
+    public Rating get(int id) {
         initEntityManager();
         em.getTransaction().begin();
 
-        StudentH studentH = (StudentH) em.createQuery("FROM StudentH WHERE student_id =: p")
+        Rating rating = (Rating) em.createQuery("FROM Rating WHERE rating_id =: p")
                 .setParameter("p", id)
                 .getSingleResult();
 
         em.close();
-        return studentH;
+        return rating;
     }
 
     @Override
-    public List<StudentH> getAll() {
+    public List<Rating> getAll() {
         initEntityManager();
         em.getTransaction().begin();
-        List<StudentH> students = null;
-        students = em.createQuery("FROM StudentH")
+        List<Rating> ratings = null;
+        ratings = em.createQuery("FROM Rating ")
                 .getResultList();
 
         em.close();
-        return students;
+        return ratings;
     }
 
     @Override
     public boolean delete(int id) {
         initEntityManager();
         em.getTransaction().begin();
-        Query query = em.createQuery("DELETE StudentH WHERE student_id =:p")
+        Query query = em.createQuery("DELETE Rating WHERE rating_id =:p")
                 .setParameter("p", id);
 
         int result = query.executeUpdate();
         em.getTransaction().commit();
         em.close();
+
         if (result == 0) {
-            System.out.println("Object has not been deleted");
+            System.out.println("Object has not been deleted ");
             return false;
         } else {
             System.out.println("Object has been deleted successfully");
             return true;
         }
-
     }
 
     @Override
-    public boolean insert(StudentH studentH) {
+    public boolean insert(Rating rating) {
         initEntityManager();
         em.getTransaction().begin();
 
-        em.persist(studentH);
+        em.persist(rating);
 
         em.getTransaction().commit();
         em.close();
@@ -83,24 +81,23 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
     }
 
     @Override
-    public boolean update(int id, StudentH studentH) {
+    public boolean update(int id, Rating rating) {
         initEntityManager();
         em.getTransaction().begin();
 
-        Query query = em.createQuery("UPDATE StudentH SET first_name =:p" + " WHERE student_id =:p2")
-                .setParameter("p", studentH.getFirst_name())
+        Query query = em.createQuery("UPDATE Rating SET rating =:p" + " WHERE rating_id =:p2")
+                .setParameter("p", rating.getRating())
                 .setParameter("p2", id);
 
         int result = query.executeUpdate();
         em.getTransaction().commit();
         em.close();
         if (result == 0) {
-            System.out.println("Update failed");
+            System.out.println("Update failed ");
             return false;
         } else {
             System.out.println("Object has been updated successfully");
             return true;
         }
-
     }
 }

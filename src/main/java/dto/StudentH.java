@@ -1,5 +1,7 @@
 package dto;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,6 +18,7 @@ public class StudentH {
 
     @OneToMany
     @JoinColumn(name="student_id")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Collection<Rating> ratings = new ArrayList<>();
 
     public Collection<Rating> getRatings() {
@@ -27,6 +30,12 @@ public class StudentH {
     }
 
     public StudentH() {
+    }
+
+    public StudentH(String first_name, String last_name, Collection<Rating> ratings) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.ratings = ratings;
     }
 
     public int getStudent_id() {
@@ -52,6 +61,8 @@ public class StudentH {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
+
+
 
     @Override
     public String toString() {

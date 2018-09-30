@@ -15,6 +15,8 @@
         <property name="hibernate_session.show_sql">true</property>
         <property name="hibernate_session.current_session_context_class">thread</property>
 
+
+        <mapping class="dto.Rating"/>
         <mapping class="dto.StudentH"/>
         <mapping class="dto.Person"/>
         <mapping class="dto.Dog"/>

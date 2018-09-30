@@ -2,13 +2,13 @@ package hibernate;
 
 import dto.Dog;
 import dto.Person;
+import dto.Rating;
+import dto.StudentH;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
@@ -16,12 +16,18 @@ public class Main {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         StudentRepositoryH studentRepositoryH = new StudentRepositoryH();
+//        Rating rating = new Rating(4,5);
+//        Collection<Rating> ratings = new ArrayList<>();
+//        ((ArrayList<Rating>) ratings).add(rating);
 
-        Map<String, String> map = new HashMap<>();
-        map.put("first_name", "Tomek");
-        map.put("last_name", "Darowski");
 
-        studentRepositoryH.insert(map);
+//        Map<String, String> map = new HashMap<>();
+//        map.put("first_name", "Tomek");
+//        map.put("last_name", "Darowski");
+
+        StudentH studentH = new StudentH("Bartek", "Kochanowski",null);
+
+        studentRepositoryH.update(7,studentH);
 
 
 //        Person person = new Person();
