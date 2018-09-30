@@ -16,9 +16,8 @@ public class StudentH {
     private String first_name;
     private String last_name;
 
-    @OneToMany
-    @JoinColumn(name="student_id")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "studentH")
+
     private Collection<Rating> ratings = new ArrayList<>();
 
     public Collection<Rating> getRatings() {
@@ -63,9 +62,9 @@ public class StudentH {
     }
 
 
-
     @Override
     public String toString() {
-        return "ID: " + student_id + " | " + "First name: " + first_name + " | " + "Last name: " + last_name;
+        return "ID: " + student_id + " | " + "First name: " + first_name + " | " + "Last name: " + last_name + " \n " + "Rating: " + ratings;
     }
+
 }

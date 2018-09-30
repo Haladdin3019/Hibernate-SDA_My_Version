@@ -7,6 +7,8 @@ import jdbc.student.AbstractRepositoryII;
 import jdbc.student.AbstractRepsitoryI;
 import jdbc.student.Student;
 import org.hibernate.Session;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,7 +38,6 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
                 .getSingleResult();
 
 
-
         em.close();
         return studentH;
     }
@@ -52,35 +53,28 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
         for (StudentH studentos : students) {
             System.out.println(studentos);
             for (Rating ratingos : studentos.getRatings()) {
-                System.out.println(ratingos);
 
             }
 
         }
-
-
         em.close();
         return null;
     }
 
     @Override
-    public boolean delete(int id) {
+        public boolean delete(StudentH object) {
         initEntityManager();
         em.getTransaction().begin();
-        Query query = em.createQuery("DELETE StudentH WHERE student_id =:p")
-                .setParameter("p", id);
 
-        int result = query.executeUpdate();
+        StudentH studentH = (StudentH) em.createQuery("FROM StudentH WHERE student_id = : p1")
+                .setParameter("p1", object.getStudent_id())
+                .getSingleResult();
+
+        em.remove(studentH);
         em.getTransaction().commit();
         em.close();
-        if (result == 0) {
-            System.out.println("Object has not been deleted");
-            return false;
-        } else {
-            System.out.println("Object has been deleted successfully");
-            return true;
-        }
 
+        return true;
     }
 
     @Override

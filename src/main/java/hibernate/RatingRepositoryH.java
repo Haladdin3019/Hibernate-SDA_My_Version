@@ -2,14 +2,12 @@ package hibernate;
 
 import dto.Rating;
 import jdbc.student.AbstractRepositoryII;
-import jdbc.student.AbstractRepsitoryI;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
-import java.util.Map;
 
 public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
 
@@ -48,23 +46,19 @@ public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(Rating object) {
         initEntityManager();
         em.getTransaction().begin();
-        Query query = em.createQuery("DELETE Rating WHERE rating_id =:p")
-                .setParameter("p", id);
 
-        int result = query.executeUpdate();
+        Rating rating = (Rating) em.createQuery("FROM Rating WHERE rating_id = : p1")
+                .setParameter("p1", object.getRating_id())
+                .getSingleResult();
+
+        em.remove(rating);
         em.getTransaction().commit();
         em.close();
 
-        if (result == 0) {
-            System.out.println("Object has not been deleted ");
-            return false;
-        } else {
-            System.out.println("Object has been deleted successfully");
-            return true;
-        }
+        return true;
     }
 
     @Override
@@ -100,4 +94,5 @@ public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
             return true;
         }
     }
+
 }

@@ -14,12 +14,13 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        EntityManager em = getEntityManager();
-        em.getTransaction().begin();
+
         StudentRepositoryH studentRepositoryH = new StudentRepositoryH();
 //        Rating rating = new Rating(4,5);
 //        Collection<Rating> ratings = new ArrayList<>();
 //        ((ArrayList<Rating>) ratings).add(rating);
+
+
 
 
 //        Map<String, String> map = new HashMap<>();
@@ -27,7 +28,6 @@ public class Main {
 //        map.put("last_name", "Darowski");
 
 
-        studentRepositoryH.getAll();
 
 
 //        Person person = new Person();

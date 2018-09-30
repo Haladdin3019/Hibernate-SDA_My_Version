@@ -10,15 +10,24 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rating_id;
 
-    private int student_id;
-
     private float rating;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private StudentH studentH;
 
     public Rating() {
     }
+    public StudentH getStudentH() {
+        return studentH;
+    }
 
-    public Rating(int student_id, float rating) {
-        this.student_id = student_id;
+    public void setStudentH(StudentH studentH) {
+        this.studentH = studentH;
+    }
+
+    public Rating(float rating) {
+
         this.rating = rating;
     }
 
@@ -30,13 +39,6 @@ public class Rating {
         this.rating_id = rating_id;
     }
 
-    public int getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(int student_id) {
-        this.student_id = student_id;
-    }
 
     public float getRating() {
         return rating;
@@ -48,6 +50,6 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "ID: " + rating_id + " | " + "Student ID: " + student_id + " | " + "Rating:" + rating + "\n";
+        return "ID: " + rating_id +  " | " + "Rating:" + rating + "\n";
     }
 }

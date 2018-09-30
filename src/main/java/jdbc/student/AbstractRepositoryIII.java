@@ -1,9 +1,8 @@
 package jdbc.student;
 
 import java.util.List;
-import java.util.Map;
 
-public interface AbstractRepositoryII<T> {
+public interface AbstractRepositoryIII<T> {
 
     T get(int id);
 
@@ -15,6 +14,6 @@ public interface AbstractRepositoryII<T> {
 
     boolean update(int id, T object);
 
-
+    boolean addRating(T object, float rating);
 
 }
