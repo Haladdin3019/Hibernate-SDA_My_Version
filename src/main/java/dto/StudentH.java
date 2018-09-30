@@ -66,6 +66,6 @@ public class StudentH {
 
     @Override
     public String toString() {
-        return "ID: " + student_id + " | " + "First name: " + first_name + " | " + "Last name: " + last_name + "\n";
+        return "ID: " + student_id + " | " + "First name: " + first_name + " | " + "Last name: " + last_name;
     }
 }

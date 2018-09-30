@@ -48,6 +48,6 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "ID: " + rating_id + " | " + "Student ID: " + student_id + " | " + "Rating:" + rating + "" + "\n";
+        return "ID: " + rating_id + " | " + "Student ID: " + student_id + " | " + "Rating:" + rating + "\n";
     }
 }

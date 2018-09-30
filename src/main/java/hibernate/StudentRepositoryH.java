@@ -1,6 +1,8 @@
 package hibernate;
 
+import dto.Rating;
 import dto.StudentH;
+import hibernate_session.HibernateUtilsI;
 import jdbc.student.AbstractRepositoryII;
 import jdbc.student.AbstractRepsitoryI;
 import jdbc.student.Student;
@@ -33,6 +35,8 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
                 .setParameter("p", id)
                 .getSingleResult();
 
+
+
         em.close();
         return studentH;
     }
@@ -45,8 +49,18 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
         students = em.createQuery("FROM StudentH")
                 .getResultList();
 
+        for (StudentH studentos : students) {
+            System.out.println(studentos);
+            for (Rating ratingos : studentos.getRatings()) {
+                System.out.println(ratingos);
+
+            }
+
+        }
+
+
         em.close();
-        return students;
+        return null;
     }
 
     @Override

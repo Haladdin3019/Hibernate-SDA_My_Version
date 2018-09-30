@@ -4,6 +4,7 @@ import dto.Dog;
 import dto.Person;
 import dto.Rating;
 import dto.StudentH;
+import hibernate_session.HibernateUtilsI;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,9 +26,8 @@ public class Main {
 //        map.put("first_name", "Tomek");
 //        map.put("last_name", "Darowski");
 
-        StudentH studentH = new StudentH("Bartek", "Kochanowski",null);
 
-        studentRepositoryH.update(7,studentH);
+        studentRepositoryH.getAll();
 
 
 //        Person person = new Person();
