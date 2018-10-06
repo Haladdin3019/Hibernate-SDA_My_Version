@@ -19,11 +19,10 @@ public class StudentH {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "studentH")
     private Collection<Rating> ratings = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "students_and_subjects",
-            joinColumns = {@JoinColumn(name = "student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "subject_id")})
-    private Set<Subject> subjects = new HashSet<>();
+    @ManyToMany(mappedBy = "students")
+    private Set<Subject> subjects;
+
+
 
     public Collection<Rating> getRatings() {
         return ratings;
@@ -65,6 +64,7 @@ public class StudentH {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
+
 
 
     @Override

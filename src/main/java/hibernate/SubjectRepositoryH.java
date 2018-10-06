@@ -60,12 +60,12 @@ public class SubjectRepositoryH implements AbstractRepositoryII<Subject> {
         EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
         Set<StudentH> studentHS = new HashSet<>();
-        for (StudentH studentH : object.getStudentHS()) {
+        for (StudentH studentH : object.getStudents()) {
 
             studentHS.add(em.find(StudentH.class, studentH.getStudent_id()));
 
         }
-        object.setStudentHS(studentHS);
+        object.setStudents(studentHS);
         em.persist(object);
 
         em.getTransaction().commit();

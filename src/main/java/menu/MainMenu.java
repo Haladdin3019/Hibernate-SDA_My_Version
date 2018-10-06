@@ -21,7 +21,8 @@ public class MainMenu {
         System.out.println("Select desired option from below by inserting the number: ");
         System.out.println("1 : Actions related to Students");
         System.out.println("2 : Actions related to Ratings");
-        System.out.println("3 : Exit the program");
+        System.out.println("3 : Actions related to Subjects");
+        System.out.println("4 : Exit the program");
 
         switch (sc.nextInt()) {
             case 1:
@@ -31,11 +32,11 @@ public class MainMenu {
                 RatingMenu ratingMenu = new RatingMenu(sc, ratingRepositoryH);
                 ratingMenu.showRatingMenu();
             case 3:
-                System.exit(0);
-                HibernateUtilsI.closeEmFactory();
-            case 4:
                 SubjectMenu subjectMenu = new SubjectMenu(sc, subjectRepositoryH);
                 subjectMenu.showMenu();
+            case 4:
+                System.exit(0);
+                HibernateUtilsI.closeEmFactory();
             default:
                 System.out.println("Option is not supported, please select correct one");
         }

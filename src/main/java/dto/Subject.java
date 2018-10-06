@@ -1,6 +1,7 @@
 package dto;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,17 +15,18 @@ public class Subject {
     private String subject_name;
 
 
-    @ManyToMany(mappedBy = "subjects", cascade = CascadeType.ALL)
-    private Set<StudentH> studentHS;
-
+    @ManyToMany
+    @JoinTable(name = "students_and_subjects",
+            joinColumns = {@JoinColumn(name = "subject_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private Set<StudentH> students = new HashSet<>();
 
     public Subject() {
     }
 
     public Subject(String subject_name, Set<StudentH> studentHS) {
         this.subject_name = subject_name;
-        this.studentHS = studentHS;
-    }
+            }
 
     public int getSubject_id() {
         return subject_id;
@@ -42,11 +44,13 @@ public class Subject {
         this.subject_name = subject_name;
     }
 
-    public Set<StudentH> getStudentHS() {
-        return studentHS;
+    public Set<StudentH> getStudents() {
+        return students;
     }
 
-    public void setStudentHS(Set<StudentH> studentHS) {
-        this.studentHS = studentHS;
+    public void setStudents(Set<StudentH> students) {
+        this.students = students;
     }
+
+
 }
