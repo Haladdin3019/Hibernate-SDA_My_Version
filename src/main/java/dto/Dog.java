@@ -2,8 +2,7 @@ package dto;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "dogs")
+
 public class Dog {
     @Id
     @GeneratedValue

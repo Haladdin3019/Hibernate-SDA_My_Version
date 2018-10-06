@@ -1,10 +1,10 @@
 package dto;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
@@ -17,8 +17,13 @@ public class StudentH {
     private String last_name;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "studentH")
-
     private Collection<Rating> ratings = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "students_and_subjects",
+            joinColumns = {@JoinColumn(name = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "subject_id")})
+    private Set<Subject> subjects = new HashSet<>();
 
     public Collection<Rating> getRatings() {
         return ratings;
@@ -64,7 +69,13 @@ public class StudentH {
 
     @Override
     public String toString() {
-        return "ID: " + student_id + " | " + "First name: " + first_name + " | " + "Last name: " + last_name + " \n " + "Rating: " + ratings;
+        final StringBuffer sb = new StringBuffer("StudentH{");
+        sb.append("student_id=").append(student_id);
+        sb.append(", first_name='").append(first_name).append('\'');
+        sb.append(", last_name='").append(last_name).append('\'');
+        sb.append(", ratings=").append(ratings);
+        sb.append('}');
+        return sb.toString();
     }
 
 }

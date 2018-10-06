@@ -1,28 +1,19 @@
 package hibernate;
 
 import dto.Rating;
+import dto.StudentH;
+import hibernate_session.HibernateUtilsI;
 import jdbc.student.AbstractRepositoryII;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
 public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
 
-    EntityManager em = null;
-
-    private void initEntityManager() {
-        if (em == null) {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-            em = emf.createEntityManager();
-        }
-    }
-
     @Override
     public Rating get(int id) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         Rating rating = (Rating) em.createQuery("FROM Rating WHERE rating_id =: p")
@@ -30,24 +21,31 @@ public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
                 .getSingleResult();
 
         em.close();
+
+
         return rating;
     }
 
     @Override
     public List<Rating> getAll() {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
         List<Rating> ratings = null;
         ratings = em.createQuery("FROM Rating ")
                 .getResultList();
 
-        em.close();
+        for (Rating rating1 : ratings) {
+            System.out.println(rating1);
+        }
+
+
+//        em.close();
         return ratings;
     }
 
     @Override
     public boolean delete(Rating object) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         Rating rating = (Rating) em.createQuery("FROM Rating WHERE rating_id = : p1")
@@ -56,27 +54,28 @@ public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
 
         em.remove(rating);
         em.getTransaction().commit();
-        em.close();
+//        em.close();
 
         return true;
     }
 
     @Override
     public boolean insert(Rating rating) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
+        rating.setStudentH(em.find(StudentH.class, rating.getStudentH().getStudent_id()));
         em.persist(rating);
 
         em.getTransaction().commit();
-        em.close();
+//        em.close();
 
         return true;
     }
 
     @Override
     public boolean update(int id, Rating rating) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         Query query = em.createQuery("UPDATE Rating SET rating =:p" + " WHERE rating_id =:p2")
@@ -85,7 +84,7 @@ public class RatingRepositoryH implements AbstractRepositoryII<Rating> {
 
         int result = query.executeUpdate();
         em.getTransaction().commit();
-        em.close();
+//        em.close();
         if (result == 0) {
             System.out.println("Update failed ");
             return false;

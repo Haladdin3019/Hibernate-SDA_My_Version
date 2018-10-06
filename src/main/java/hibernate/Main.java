@@ -5,6 +5,7 @@ import dto.Person;
 import dto.Rating;
 import dto.StudentH;
 import hibernate_session.HibernateUtilsI;
+import menu.MainMenu;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,19 +16,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StudentRepositoryH studentRepositoryH = new StudentRepositoryH();
+        MainMenu mainMenu = new MainMenu();
+
+        while (true) {
+            mainMenu.showMainMenu();
+
+        }
+
+//        StudentRepositoryH studentRepositoryH = new StudentRepositoryH();
+//
+//        Rating rating = new Rating((float) 9.6);
+//        Collection<Rating> ratings = new ArrayList<>();
+//        ((ArrayList<Rating>) ratings).add(rating);
+//
+//        StudentH studentH = new StudentH("Agnieszka", "Marszalek", ratings);
+//        rating.setStudentH(studentH);
+//        studentRepositoryH.insert(studentH);
+
+
 //        Rating rating = new Rating(4,5);
 //        Collection<Rating> ratings = new ArrayList<>();
 //        ((ArrayList<Rating>) ratings).add(rating);
 
 
-
-
 //        Map<String, String> map = new HashMap<>();
 //        map.put("first_name", "Tomek");
 //        map.put("last_name", "Darowski");
-
-
 
 
 //        Person person = new Person();
@@ -66,10 +80,8 @@ public class Main {
 //        em.getTransaction().commit();
 //        em.close();
 
+
     }
 
-    private static EntityManager getEntityManager() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-        return emf.createEntityManager();
-    }
+
 }

@@ -19,32 +19,24 @@ import java.util.Map;
 
 public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
 
-    EntityManager em = null;
-
-    private void initEntityManager() {
-        if (em == null) {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-            em = emf.createEntityManager();
-        }
-    }
-
     @Override
     public StudentH get(int id) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         StudentH studentH = (StudentH) em.createQuery("FROM StudentH WHERE student_id =: p")
                 .setParameter("p", id)
                 .getSingleResult();
 
+        em.getTransaction().commit();
+//        em.close();
 
-        em.close();
         return studentH;
     }
 
     @Override
     public List<StudentH> getAll() {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
         List<StudentH> students = null;
         students = em.createQuery("FROM StudentH")
@@ -57,13 +49,14 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
             }
 
         }
-        em.close();
+        em.getTransaction().commit();
+//        em.close();
         return null;
     }
 
     @Override
         public boolean delete(StudentH object) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         StudentH studentH = (StudentH) em.createQuery("FROM StudentH WHERE student_id = : p1")
@@ -72,27 +65,27 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
 
         em.remove(studentH);
         em.getTransaction().commit();
-        em.close();
+//        em.close();
 
         return true;
     }
 
     @Override
     public boolean insert(StudentH studentH) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         em.persist(studentH);
 
         em.getTransaction().commit();
-        em.close();
+//        em.close();
 
         return true;
     }
 
     @Override
     public boolean update(int id, StudentH studentH) {
-        initEntityManager();
+        EntityManager em = HibernateUtilsI.getEntityManager();
         em.getTransaction().begin();
 
         Query query = em.createQuery("UPDATE StudentH SET first_name =:p" + " WHERE student_id =:p2")
@@ -101,14 +94,38 @@ public class StudentRepositoryH implements AbstractRepositoryII<StudentH> {
 
         int result = query.executeUpdate();
         em.getTransaction().commit();
-        em.close();
+//        em.close();
         if (result == 0) {
             System.out.println("Update failed");
             return false;
         } else {
-            System.out.println("Object has been updated successfully");
+            System.out.println("Object first_name has been updated successfully");
             return true;
         }
 
+
     }
+
+    public boolean updateLastName(int id, StudentH studentH) {
+        EntityManager em = HibernateUtilsI.getEntityManager();
+        em.getTransaction().begin();
+
+        Query query = em.createQuery("UPDATE StudentH SET last_name =:p" + " WHERE student_id =:p2")
+                .setParameter("p", studentH.getLast_name())
+                .setParameter("p2", id);
+
+        int result = query.executeUpdate();
+        em.getTransaction().commit();
+//        em.close();
+        if (result == 0) {
+            System.out.println("Update failed");
+            return false;
+        } else {
+            System.out.println("Object last_name has been updated successfully");
+            return true;
+        }
+
+
+    }
+
 }

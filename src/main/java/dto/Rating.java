@@ -10,14 +10,20 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rating_id;
 
-    private float rating;
+    private double rating;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id")
     private StudentH studentH;
 
     public Rating() {
     }
+
+    public Rating(double rating, StudentH studentH) {
+        this.rating = rating;
+        this.studentH = studentH;
+    }
+
     public StudentH getStudentH() {
         return studentH;
     }
@@ -26,10 +32,12 @@ public class Rating {
         this.studentH = studentH;
     }
 
-    public Rating(float rating) {
+    public Rating(double rating) {
 
         this.rating = rating;
     }
+
+
 
     public int getRating_id() {
         return rating_id;
@@ -40,7 +48,7 @@ public class Rating {
     }
 
 
-    public float getRating() {
+    public double getRating() {
         return rating;
     }
 
@@ -50,6 +58,10 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "ID: " + rating_id +  " | " + "Rating:" + rating + "\n";
+        final StringBuffer sb = new StringBuffer("Rating{");
+        sb.append("rating_id=").append(rating_id);
+        sb.append(", rating=").append(rating);
+        sb.append('}');
+        return sb.toString();
     }
 }
