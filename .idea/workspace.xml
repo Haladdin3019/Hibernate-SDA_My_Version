@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9738106b-4a1f-4de0-be60-0a715fff78d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hibernate/SubjectRepositoryH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/menu/RatingMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/menu/StudentMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/menu/SubjectMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Rating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/StudentH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/StudentH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/RatingRepositoryH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/RatingRepositoryH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate/StudentRepositoryH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate/StudentRepositoryH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate_session/HibernateUtilsI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernate_session/HibernateUtilsI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jdbc/student/AbstractRepositoryIII.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/Dog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/Rating.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/StudentH.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/StudentH.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate/RatingRepositoryH.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate/RatingRepositoryH.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate/StudentRepositoryH.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate/StudentRepositoryH.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate_session/HibernateUtilsI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate_session/HibernateUtilsI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/MainMenu.class" afterDir="false" />
-    </list>
+    <list default="true" id="9738106b-4a1f-4de0-be60-0a715fff78d7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,8 +178,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/dto/StudentH.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+            <state relative-caret-position="459">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1194#1195#0" expanded="true" />
@@ -444,7 +413,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538824805520" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538824933320" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -496,12 +465,12 @@
       <workItem from="1538298615055" duration="16884000" />
       <workItem from="1538374638991" duration="710000" />
       <workItem from="1538500743351" duration="1921000" />
-      <workItem from="1538593926057" duration="30595000" />
+      <workItem from="1538593926057" duration="30875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75261000" />
+    <option name="totallyTimeSpent" value="75541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,6 +483,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30711043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -910,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/StudentH.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+        <state relative-caret-position="459">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1194#1195#0" expanded="true" />
